@@ -1,0 +1,61 @@
+/***************************************************************************/
+/*                                                                         */
+/* Modul: SESDemo.RC                                                       */
+/* Autor: Michael Schmidt                                                  */
+/* Datum: 17.12.1994                                                       */
+/*                                                                         */
+/***************************************************************************/
+
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+
+#include "sesdemo.h"
+
+MENU    ID_MAIN PRELOAD
+BEGIN
+  SUBMENU "S~ES", ID_CONTROL
+  BEGIN
+    MENUITEM "~öber...",                       ID_ABOUT,    MIS_TEXT
+    MENUITEM SEPARATOR
+    MENUITEM "~Dialog verstecken",             ID_HIDE,     MIS_TEXT
+    MENUITEM SEPARATOR
+    MENUITEM "~Abmelden\tCtrl+A",              ID_LOGOFF,   MIS_TEXT
+    MENUITEM "S~ystemabschlu·\tCtrl+Y",        ID_SHUTDOWN, MIS_TEXT
+  END
+END
+
+
+
+ACCELTABLE ID_MAIN PRELOAD
+BEGIN
+  "a",   ID_LOGOFF,               CONTROL
+  "A",   ID_LOGOFF,               CONTROL
+  "a",   ID_LOGOFF,               CONTROL, SHIFT
+  "A",   ID_LOGOFF,               CONTROL, SHIFT
+  "y",   ID_SHUTDOWN,             CONTROL
+  "Y",   ID_SHUTDOWN,             CONTROL
+  "y",   ID_SHUTDOWN,             CONTROL, SHIFT
+  "Y",   ID_SHUTDOWN,             CONTROL, SHIFT
+  "Å",   ID_ABOUT,                CONTROL
+  "ö",   ID_ABOUT,                CONTROL
+  "Å",   ID_ABOUT,                CONTROL, SHIFT
+  "ö",   ID_ABOUT,                CONTROL, SHIFT
+END
+
+DLGTEMPLATE ID_LOGON LOADONCALL FIXED DISCARDABLE
+BEGIN
+    DIALOG  "SES-Anmeldedialog", ID_LOGON, 3, 3, 228, 80, FS_SYSMODAL | 
+            FS_SCREENALIGN | WS_VISIBLE, FCF_TITLEBAR
+    BEGIN
+        ENTRYFIELD      "", ID_USERENTRY, 89, 58, 116, 11, ES_MARGIN
+        ENTRYFIELD      "", ID_PASSWORDENTRY, 89, 33, 116, 11, ES_MARGIN | 
+                        ES_UNREADABLE
+        DEFPUSHBUTTON   "~OK", ID_OK, 17, 9, 190, 14
+        RTEXT           "Benutzername:", ID_USERTEXT, 14, 59, 61, 8
+        RTEXT           "Pa·wort:", ID_PASSWORDTEXT, 36, 35, 39, 8
+    END
+END
+
+
+

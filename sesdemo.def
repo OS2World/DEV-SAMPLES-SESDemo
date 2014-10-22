@@ -1,0 +1,10 @@
+NAME        SESDEMO      WINDOWAPI
+
+IMPORTS
+        SESAPI.SESSetContextStatus
+        SESAPI.SESRegisterDaemon
+        SESAPI.SESStartEvent
+        SESAPI.SESWaitEvent
+        SESAPI.SESReturnEventStatus
+
+
